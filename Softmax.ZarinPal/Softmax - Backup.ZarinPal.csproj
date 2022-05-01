@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
+	<LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Version>1.0.0-preview.1</Version>
+	<Authors>Morteza Mirshekar</Authors>
+    <PackageId>Softmax.ZarinPal</PackageId>
+    <Copyright>© 2022 Morteza Mirshekar</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>Softmax; zarinpal; api; payment; gate; verify</PackageTags>
+    <Description>Unofficial implementation of ZarinPal API</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/peymanr34/riviera-zarinpal</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/peymanr34/riviera-zarinpal</PackageProjectUrl>
+  </PropertyGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+		<PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+		<PackageReference Include="System.Net.Http.Json" Version="3.2.1" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="3.1.10" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.0" />
+	</ItemGroup>
+
+  <ItemGroup>
+
+  </ItemGroup>
+
+</Project>
