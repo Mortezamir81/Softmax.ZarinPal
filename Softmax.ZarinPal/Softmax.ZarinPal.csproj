@@ -2,20 +2,19 @@
 
   <PropertyGroup>
     <TargetFrameworks>net6.0</TargetFrameworks>
-	<LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>1.0.0-preview.1</Version>
+    <Version>1.0.2-preview.3</Version>
 	<Authors>Morteza Mirshekar</Authors>
     <PackageId>Softmax.ZarinPal</PackageId>
     <Copyright>© 2022 Morteza Mirshekar</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>softmax; zarinpal; api; payment; gate; verify</PackageTags>
-    <Description>Unofficial implementation of ZarinPal API</Description>
+    <PackageTags>softmax; zarinpal; api; payment; gate; verify; zarinpal.core</PackageTags>
+    <Description>Unofficial implementation of ZarinPal API For .NET 6</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <RepositoryUrl>https://github.com/peymanr34/riviera-zarinpal</RepositoryUrl>
-    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mirshekarm/Softmax.ZarinPal</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/mirshekarm/Softmax.ZarinPal</PackageProjectUrl>
   </PropertyGroup>
 
 	<ItemGroup>

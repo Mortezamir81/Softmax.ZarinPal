@@ -4,7 +4,7 @@ namespace Softmax.ZarinPal
 {
     public interface IZarinPalService
     {
-        Task<VerifyResponse> VerifyAsync(string authority, int amount);
+        Task<VerifyResponse> VerifyAsync(string authority, long amount);
 
         Task<PaymentResponse> PaymentAsync(PaymentRequest paymentRequest);
     }

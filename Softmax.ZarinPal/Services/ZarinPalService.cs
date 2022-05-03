@@ -172,7 +172,7 @@ namespace Softmax.ZarinPal
 		}
 
 
-		public async Task<VerifyResponse> VerifyAsync(string authority, int amount)
+		public async Task<VerifyResponse> VerifyAsync(string authority, long amount)
 		{
 			VerifyResponse returnValue = null;
 

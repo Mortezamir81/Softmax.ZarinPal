@@ -4,7 +4,7 @@ namespace Softmax.ZarinPal
 {
     public class PaymentRequest
     {
-		public int Amount { get; set; }
+		public long Amount { get; set; }
 
 		public string Mobile { get; set; }
 
