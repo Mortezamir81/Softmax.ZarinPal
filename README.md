@@ -134,38 +134,38 @@ using Softmax.ZarinPal;
 
 namespace ZarinPal
 {
-  internal class Program
-  {
-    static void Main(string[] args)
+    internal class Program
     {
-        IZarinPalService zarinPal = 
-          new ZarinPalService(merchantId: "your-merchant-id", defaultCallbackUri: new Uri("your-callback-uri"));
-          
-        // Defualt CurrencyType is IRR (Rial) , you can change it in service options
-        long amount = 1000; // Required   
-        string description = "This is a test payment"; // Required
-  
-        string callbackUrl = new Uri("https://localhost:5001/verify"); // Optional 
-        string email = "your-email"; // Optional 
-        string mobile = "your-mobie"; // Optional 
-  
-        var result = await zarinPal.PaymentAsync(new PaymentRequest
+        static void Main(string[] args)
         {
-            CallbackUrl = callbackUrl,
-            Description = description,
-            Amount = amount,
-            Email = email,
-            Mobile = mobile,
-        });
-  
-        if (result.IsSuccess())
-        {
-            Console.WriteLine(result.Data.PaymentUri.AbsoluteUri);
+            IZarinPalService zarinPal = 
+              new ZarinPalService(merchantId: "your-merchant-id", defaultCallbackUri: new Uri("your-callback-uri"));
+              
+            // Defualt CurrencyType is IRR (Rial) , you can change it in service options
+            long amount = 1000; // Required   
+            string description = "This is a test payment"; // Required
+        
+            string callbackUrl = new Uri("https://localhost:5001/verify"); // Optional 
+            string email = "your-email"; // Optional 
+            string mobile = "your-mobie"; // Optional 
+        
+            var result = await zarinPal.PaymentAsync(new PaymentRequest
+            {
+                CallbackUrl = callbackUrl,
+                Description = description,
+                Amount = amount,
+                Email = email,
+                Mobile = mobile,
+            });
+        
+            if (result.IsSuccess())
+            {
+                Console.WriteLine(result.Data.PaymentUri.AbsoluteUri);
+            }
+        
+            Console.WriteLine($"Failed, Error code: {result.Error.Code}");
         }
-  
-        Console.WriteLine($"Failed, Error code: {result.Error.Code}");
     }
-  }
 }
 ```
 
@@ -180,26 +180,26 @@ using Softmax.ZarinPal;
 
 namespace ZarinPal
 {
-  internal class Program
-  {
-    static void Main(string[] args)
+    internal class Program
     {
-        IZarinPalService zarinPal = 
-          new ZarinPalService(merchantId: "your-merchant-id", defaultCallbackUri: new Uri("your-callback-uri"));
-              
-        long amount = 1000;
-        var result = await zarinPal.VerifyAsync(authority: "your-authority", amount: 1000);
-      
-        // Check if transaction was successful.
-        if (result.IsSuccess())
+        static void Main(string[] args)
         {
-          Console.WriteLine($"Success, RefId: {result.Data.RefId}");
+            IZarinPalService zarinPal = 
+              new ZarinPalService(merchantId: "your-merchant-id", defaultCallbackUri: new Uri("your-callback-uri"));
+                  
+            long amount = 1000;
+            var result = await zarinPal.VerifyAsync(authority: "your-authority", amount: 1000);
+          
+            // Check if transaction was successful.
+            if (result.IsSuccess())
+            {
+              Console.WriteLine($"Success, RefId: {result.Data.RefId}");
+            }
+          
+            // Show unsuccessful transaction with code.
+            Console.WriteLine($"Failed, Error code: {result.Error.Code}");
         }
-      
-        // Show unsuccessful transaction with code.
-        Console.WriteLine($"Failed, Error code: {result.Error.Code}");
     }
-  }
 }
 ```
 
