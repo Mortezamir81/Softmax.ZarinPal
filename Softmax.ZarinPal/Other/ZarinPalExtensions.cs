@@ -15,5 +15,15 @@ namespace Softmax.ZarinPal
             services.Configure(options);
             services.AddHttpClient<IZarinPalService, ZarinPalService>();
         }
+
+        public static bool IsSuccess(this PaymentResponse response)
+        {
+            return response?.Data?.Code == 100;
+        }
+
+        public static bool IsSuccess(this VerifyResponse response)
+        {
+            return (response?.Data?.Code == 100) || (response?.Data?.Code == 101);
+        }
     }
 }
