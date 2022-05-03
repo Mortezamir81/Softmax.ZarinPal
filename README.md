@@ -200,8 +200,8 @@ namespace ZarinPal
 ```
 
 ## Contact with me
-telegram: @mortezamir81
-email: mortezamirshekar81@gmail.com
+- **Telegram**: @mortezamir81
+- **Email**: mortezamirshekar81@gmail.com
 
 
 ## License
