@@ -208,5 +208,5 @@ namespace ZarinPal
 This project is licensed under the [MIT License](LICENSE).
 
 [nuget]: https://www.nuget.org/packages/Softmax.ZarinPal
-[nuget-shield]: https://img.shields.io/nuget/v/Softmax.ZarinPal?label=Release
+[nuget-shield]: https://img.shields.io/nuget/v/Softmax.ZarinPal?label=Release&color=blue
 [nuget-shield-dl]: https://img.shields.io/nuget/dt/Softmax.ZarinPal?label=Downloads&color=red
