@@ -138,7 +138,7 @@ namespace ZarinPal
         static void Main(string[] args)
         {
             IZarinPalService zarinPal = 
-              new ZarinPalService(merchantId: "your-merchant-id", defaultCallbackUri: new Uri("your-callback-uri"));
+              new ZarinPalService(merchantId: "your-merchant-id", defaultCallbackUri: new Uri("your-callback-uri"), currencyType: CurrencyType.IRR);
               
             // Defualt CurrencyType is IRR (Rial) , you can change it in service options
             long amount = 1000; // Required   
@@ -181,7 +181,7 @@ namespace ZarinPal
         static void Main(string[] args)
         {
             IZarinPalService zarinPal = 
-              new ZarinPalService(merchantId: "your-merchant-id", defaultCallbackUri: new Uri("your-callback-uri"));
+              new ZarinPalService(merchantId: "your-merchant-id", defaultCallbackUri: new Uri("your-callback-uri"), currencyType: CurrencyType.IRR);
                   
             long amount = 1000;
             var result = await zarinPal.VerifyAsync(authority: "your-authority", amount: 1000);
