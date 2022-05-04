@@ -130,6 +130,7 @@ You can request a payment via `PaymentAsync` method.
 
 ```csharp
 using Softmax.ZarinPal;
+using Softmax.ZarinPal.Enums;
 
 namespace ZarinPal
 {
@@ -173,6 +174,7 @@ You can verify the payment transaction using the `VerifyAsync` method.
 
 ```csharp
 using Softmax.ZarinPal;
+using Softmax.ZarinPal.Enums;
 
 namespace ZarinPal
 {
