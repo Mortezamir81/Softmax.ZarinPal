@@ -15,7 +15,7 @@ Install-Package Softmax.ZarinPal -PreRelease
 
 ## Use in ASP.NET Core 6
 ### Startup Configuration
-To use `ZarinPalService` you need to register it in your `Program.cs` class: 
+Register `ZarinPalService` in your `Program.cs` class: 
 
 ```csharp
 // using Softmax.ZarinPal;
@@ -37,7 +37,7 @@ builder.Services.AddZarinPal(options =>
 *Note:* IRR is **Iran Rial** and IRT is **Iran Toman**.
 
 ### Controller Configuration
-After registering the service, you need to add it to your controller.
+Then, you need to add `ZarinPalService` to your controller:
 
 ```csharp
 // using Softmax.ZarinPal;
@@ -54,11 +54,11 @@ public class HomeController : Controller
 ```
 
 ### Payment
-You can request a payment via `PaymentAsync` method.
+You can request a new payment by the `PaymentAsync` method.
 
 - **Amount** is the transaction amount. (Required)
-- **Description** is a short description about the transaction. (Required)
-- **Callback Url** is the url to redirect to after the transaction. (Optional)
+- **Description** description of the transaction. (Required)
+- **Callback Url** the url to which the transaction should be redirected after completion. (Optional)
 
 ```csharp
 [Route("send")]
@@ -91,10 +91,9 @@ public async Task<IActionResult> Send()
 ```
 
 ### Verify Payment
-You can verify the transaction via `VerifyAsync` method.
+You can verify the payment transaction using the `VerifyAsync` method.
 
-> This action was our **Callback Url** in the `PaymentAsync` method.
-> After the transaction was completed, the payment provider will redirect to this action. 
+> This action is called when the **Callback Url** we defined earlier is called (when the transaction is completed)
 
 ```csharp
 [Route("verify")]
@@ -126,8 +125,8 @@ public async Task<IActionResult> Verify()
 You can request a payment via `PaymentAsync` method.
 
 - **Amount** is the transaction amount. (Required)
-- **Description** is a short description about the transaction. (Required)
-- **Callback Url** is the url to redirect to after the transaction. (Optional)
+- **Description** description of the transaction. (Required)
+- **Callback Url** the url to which the transaction should be redirected after completion. (Optional)
 
 ```csharp
 using Softmax.ZarinPal;
@@ -170,10 +169,7 @@ namespace ZarinPal
 ```
 
 ### Verify Payment
-You can verify the transaction via `VerifyAsync` method.
-
-> This action was our **Callback Url** in the `PaymentAsync` method.
-> After the transaction was completed, the payment provider will redirect to this action. 
+You can verify the payment transaction using the `VerifyAsync` method.
 
 ```csharp
 using Softmax.ZarinPal;
@@ -203,10 +199,14 @@ namespace ZarinPal
 }
 ```
 
+## Contact with me
+- **Telegram**: @mortezamir81
+- **Email**: mortezamirshekar81@gmail.com
+
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
 
 [nuget]: https://www.nuget.org/packages/Softmax.ZarinPal
-[nuget-shield]: https://img.shields.io/nuget/v/Softmax.ZarinPal
-[nuget-shield-dl]: https://img.shields.io/nuget/dt/Softmax.ZarinPal
+[nuget-shield]: https://img.shields.io/nuget/v/Softmax.ZarinPal?label=Release&color=blue
+[nuget-shield-dl]: https://img.shields.io/nuget/dt/Softmax.ZarinPal?label=Downloads&color=red
