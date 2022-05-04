@@ -11,7 +11,7 @@
     <Copyright>© 2022 Morteza Mirshekar</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>softmax; zarinpal; api; payment; gate; verify; zarinpal.core</PackageTags>
-    <Description>Unofficial implementation of ZarinPal API For .NET 6</Description>
+    <Description>Unofficial implementation of ZarinPal API For .NET 6. Documents: https://github.com/mirshekarm/Softmax.ZarinPal</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryUrl>https://github.com/mirshekarm/Softmax.ZarinPal</RepositoryUrl>
     <PackageProjectUrl>https://github.com/mirshekarm/Softmax.ZarinPal</PackageProjectUrl>

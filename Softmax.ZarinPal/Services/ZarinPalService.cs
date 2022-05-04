@@ -7,6 +7,7 @@ using System.Text.Json.Nodes;
 using Softmax.ZarinPal.Other;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
+using Softmax.ZarinPal.Enums;
 
 namespace Softmax.ZarinPal
 {
@@ -17,7 +18,8 @@ namespace Softmax.ZarinPal
 			(string merchantId = null,
 			HttpClient httpClient = null,
 			Uri defaultCallbackUri = null,
-			IOptions<ZarinPalOptions> options = null) : base()
+			IOptions<ZarinPalOptions> options = null,
+			CurrencyType? currencyType = null) : base()
 		{
 			_httpClient =
 				httpClient ?? new HttpClient();
@@ -35,7 +37,7 @@ namespace Softmax.ZarinPal
 
 				if (options.Value.CurrencyType != null)
 				{
-					_currencyType = options.Value.CurrencyType == 0 ? "IRR" : "IRT";
+					_currencyType = options.Value.CurrencyType.Value;
 				}
 
 				_merchantId = options.Value.MerchantId;
@@ -44,6 +46,11 @@ namespace Softmax.ZarinPal
 			{
 				_merchantId =
 					merchantId ?? throw new ArgumentException($"'{nameof(options.Value.MerchantId)}' has not been configured.", nameof(options));
+
+				if (currencyType != null)
+				{
+					_currencyType = currencyType.Value;
+				}
 			}
 
 			_defaultCallbackUri = defaultCallbackUri;
@@ -55,7 +62,7 @@ namespace Softmax.ZarinPal
 		private HttpClient _httpClient { get; set; }
 		private Uri _defaultCallbackUri { get; set; }
 		private ZarinPalOptions _options { get; set; }
-		private string _currencyType { get; set; } = "IRR";
+		private CurrencyType _currencyType { get; set; } = CurrencyType.IRR;
 		private string _verifyUri => "https://api.zarinpal.com/pg/v4/payment/verify.json";
 		private string _paymentUri => "https://api.zarinpal.com/pg/v4/payment/request.json";
 		#endregion /Properties
@@ -106,7 +113,7 @@ namespace Softmax.ZarinPal
 				merchant_id = _merchantId,
 				mobile = paymentRequest.Mobile,
 				email = paymentRequest.Email,
-				currency = _currencyType,
+				currency = _currencyType == 0 ? "IRR" : "IRT",
 			});
 
 			var jsonText = await response.Content.ReadAsStringAsync();
