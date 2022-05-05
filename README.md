@@ -8,7 +8,7 @@ Unofficial implementation of ZarinPal API for .NET 6
 You can install this package by entering the following command into your `Package Manager Console`:
 
 ```powershell
-Install-Package Softmax.ZarinPal -PreRelease
+Install-Package Softmax.ZarinPal
 ```
 
 *Note:* This package requires **.NET 6.0**.
