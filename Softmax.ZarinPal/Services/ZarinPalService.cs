@@ -74,10 +74,7 @@ namespace Softmax.ZarinPal
 
 			Uri actualCallbackUri = null;
 
-			if (paymentRequest == null)
-			{
-				throw new ArgumentNullException(nameof(paymentRequest));
-			}
+			ArgumentNullException.ThrowIfNull(paymentRequest);
 
 			if (paymentRequest.CallbackUrl != null)
 			{
@@ -91,19 +88,13 @@ namespace Softmax.ZarinPal
 			}
 
 			if (actualCallbackUri == null)
-			{
 				throw new ArgumentException($"The {nameof(paymentRequest.CallbackUrl)} parameter is null", nameof(paymentRequest.CallbackUrl));
-			}
 
 			if (string.IsNullOrWhiteSpace(paymentRequest.Description))
-			{
 				throw new ArgumentNullException(nameof(paymentRequest.Description));
-			}
 
 			if (paymentRequest.Amount < 1000)
-			{
 				throw new ArgumentException($"The {nameof(paymentRequest.Amount)} must be at least 1000", nameof(paymentRequest.Amount));
-			}
 
 			var response = await _httpClient.PostAsJsonAsync(_paymentUri, new
 			{
@@ -205,7 +196,7 @@ namespace Softmax.ZarinPal
 			{
 				var fee = (int)data["fee"];
 				var code = (int)data["code"];
-				var refId = (int)data["ref_id"];
+				var refId = (long)data["ref_id"];
 				var message = (string)data["message"];
 				var feeType = (string)data["fee_type"];
 				var cardMask = (string)data["card_pan"];

@@ -16,7 +16,7 @@ namespace Softmax.ZarinPal
 
 		public int Code { get; set; }
 
-		public int refId { get; set; }
+		public long refId { get; set; }
 
 		public string Message { get; set; }
 
